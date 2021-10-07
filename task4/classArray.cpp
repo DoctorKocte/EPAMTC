@@ -13,6 +13,6 @@ int main() {
 	sum2(array);
 	Array<char> arr(2, 2);
 	arr.show();
-	Array<int> arr2(array);
+	Array<int> arr2(array); //проверка конструктора копирования
 	arr2.show();
 }
