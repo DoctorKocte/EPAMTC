@@ -1,7 +1,7 @@
 #include "ourClass.h"
 
 MyString::MyString() {
-    m_str = { 0 };
+    m_str = "";
 }
 
 MyString::MyString(string str) {
@@ -55,8 +55,7 @@ void MyString::replaceC() {
                 count++;
             }
         } cout << endl << "Количество замен: " << count << endl;
-    }
-    else {
+    } else {
         cout << "Буквы С в строке нет." << endl;
     }
 }
@@ -65,8 +64,9 @@ void MyString::multiplicity() {
     if (m_str.size() % 5 == 0) {
         m_str.erase(m_str.size() - (m_str.size()/5), (m_str.size() / 5));
     } else {
-        char tmp = m_str[0];
+        swap(m_str[0], m_str[m_str.size() - 1]);
+  /*    char tmp = m_str[0];
         m_str[0] = m_str[m_str.size() - 1];
-        m_str[m_str.size() - 1] = tmp;
+        m_str[m_str.size() - 1] = tmp;*/
     }
 }
