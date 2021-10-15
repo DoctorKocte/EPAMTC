@@ -5,7 +5,6 @@ using std::cin;
 using std::endl;
 
 template <typename T> class Array;
-//template <typename T> void sum(Array<T>& var);
 template <typename T> void sum2(Array<T>& var);
 
 template <typename T>
@@ -47,7 +46,7 @@ public:
 			}
 		}
 	}
-	//коструктор копирвоания
+	//коструктор копирования
 	Array(const Array& p) { //конструктор копирования
 		this->a = p.a;
 		this->b = p.b;
@@ -77,31 +76,8 @@ public:
 		} cout << endl;
 	}
 
-	//friend void sum<T>(Array<T>& obj);
 	friend void sum2<T>(Array<T>& obj);
-
 };
-
-//доработать
-//template <typename T>
-//void sum(Array<T>& obj) {
-//	for (int i = 0; i < obj.a; i++) {
-//		for (int j = 0; j < obj.b; j++) {
-//			if (obj.arr[j][i] > 0) {
-//			
-//				for (int k = 0; k < obj.b; k++) {
-//					T sum = 0;
-//					for (int g = 0; g < obj.a; g++) {
-//						sum += obj.arr[g][k];
-//					} cout << "Сумма столбика " << i + 1 << ": " << sum << endl;
-//					
-//				} 
-//				break;
-//			}
-//			
-//		}
-//	}
-//}
 
 template <typename T>
 void sum2(Array<T>& obj) {
