@@ -1,7 +1,6 @@
 #pragma once
 #include <iostream>
 
-
 template <typename T>
 class Vect {
 private:
@@ -46,13 +45,14 @@ public:
 	}
 
 	void sort() {
-		int temp = 0;
+		//int temp = 0;
 		for (int i = 0; i < m_size; i++) {
 			for (int j = i; j < m_size; j++)
 				if (m_elem[i] > m_elem[j]) {
-					temp = m_elem[j];
-					m_elem[j] = m_elem[i];
-					m_elem[i] = temp;
+					std::swap(m_elem[i], m_elem[j]);
+					//temp = m_elem[j];
+					//m_elem[j] = m_elem[i];
+					//m_elem[i] = temp;
 				}
 		}
 	}
@@ -80,8 +80,7 @@ public:
 			temp[i] = m_elem[i];
 		}
 
-		/*другой способ
-    int j = 0;
+		/*int j = 0;
 		for (int i = 0; i < m_size; i++) {
 			if (i % 2 == 1) {
 				m_elem[j] = temp[i];
@@ -107,6 +106,6 @@ public:
 
 	~Vect() {
 		delete[] m_elem;
+	//	std::cout << this << std::endl;
 	}
-	
 };
