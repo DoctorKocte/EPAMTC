@@ -70,8 +70,11 @@ public:
 	}
 	T average()
 	{
-		sort();
-		return m_elem[m_size / 2];
+		T sum = 0;
+		for (int i = 0; i < m_size; i++) {
+			sum += m_elem[i];
+		}
+		return sum / 2;
 	}
 
 	void changePosition() {
