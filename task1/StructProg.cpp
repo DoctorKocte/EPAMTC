@@ -39,6 +39,7 @@ int main() {
     //создаем временную переменную и сортируем массив структур 
     for (int i = N - 1; i >= 0; i--) {
         for (int j = 0; j < i; j++) {
+            //при работе с большими данными лучше обойтись без подобного вызова функций
             if (getMarksSum(masSt[j]) < getMarksSum(masSt[j + 1])) {
                 student tmp = masSt[j];
                 masSt[j] = masSt[j + 1];
