@@ -20,15 +20,15 @@ public:
 		m_amount = amount;
 	}
 
-	void sum(Conversion<T, V> obj);
+	double sum(Conversion<T, V> obj);
 
 	~Conversion(){}
 };
 
 template <typename T, typename V>
-void Conversion<T,V>::sum(Conversion<T, V> obj) {
+double Conversion<T,V>::sum(Conversion<T, V> obj) {
 	double byn1 = m_amount * m_currency;
 	double byn2 = obj.m_amount * obj.m_currency;
 	double sum = byn1 + byn2;
-	cout << sum << endl;
+	return sum;
 }
