@@ -14,12 +14,12 @@
 
 struct man {
 	std::string secondname, 
-				firstname, 
-				patronymic, 
-				gender, 
-				month;
+			firstname, 
+			patronymic, 
+			gender, 
+			month;
 	unsigned short day,
-				   year;
+			year;
 };
 
 int menu();
