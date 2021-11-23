@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include "Vector.h"
+#include "Timer.h"
 #include <chrono> 
 #include <ctime>
 #include <vector>
@@ -65,18 +66,18 @@ int main() {
         std::cout << *it << " ";
         it++;
     } std::cout << std::endl;
-
-   /* Vector<int> vec(1000);
+    
+    /*Vector<int> vec(1000);
     std::vector<int> vec2(1000);
-    for (int i = 0; i < vec.size(); i++) {
+    for (size_t i = 0; i < vec.size(); i++) {
         vec[i] = rand() % 100;
     }
-    for (int i = 0; i < vec2.size(); i++) {
+    for (size_t i = 0; i < vec2.size(); i++) {
         vec2[i] = rand() % 100;
     }
 
-    findtime2(vec2);
     findtime(vec);
+    findtime2(vec2);
     findtime3(vec);
 
     Vector<int> vec3(vec);
@@ -87,70 +88,44 @@ int main() {
 template <typename T>
 void findtime(Vector<T> vec) {
     std::cout << "Поиск элемента в class Vector при помощи find." << std::endl;
-    std::chrono::time_point<std::chrono::system_clock> start, end;
-    start = std::chrono::system_clock::now();
-
+    Timer t;
     vec.find(3);
-
-    end = std::chrono::system_clock::now();
-    std::chrono::duration<double> elapsed_seconds = end - start;
-    std::time_t end_time = std::chrono::system_clock::to_time_t(end);
-    std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+    std::cout << "elapsed time: " << t.elapsed() << "s\n";
 }
 
 template <typename T>
 void findtime2(std::vector<T> vec) {
     std::cout << "Поиск элемента в std::vector при помощи std::find." << std::endl;
-    std::chrono::time_point<std::chrono::system_clock> start, end;
-    start = std::chrono::system_clock::now();
+    Timer t;
 
     std::find(vec.begin(), vec.end(), 3);
-
-    end = std::chrono::system_clock::now();
-    std::chrono::duration<double> elapsed_seconds = end - start;
-    std::time_t end_time = std::chrono::system_clock::to_time_t(end);
-    std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+    std::cout << "elapsed time: " << t.elapsed() << "s\n";
 }
 
 template <typename T>
 void findtime3(Vector<T> vec) {
     std::cout << "Поиск элемента в class Vector при помощи find_m(vec.begin(), vec.end(), value);." << std::endl;
-    std::chrono::time_point<std::chrono::system_clock> start, end;
-    start = std::chrono::system_clock::now();
+    Timer t;
 
     find_m(vec.begin(), vec.end(), 3);
-
-    end = std::chrono::system_clock::now();
-    std::chrono::duration<double> elapsed_seconds = end - start;
-    std::time_t end_time = std::chrono::system_clock::to_time_t(end);
-    std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+    std::cout << "elapsed time: " << t.elapsed() << "s\n";
 }
 
 template <typename T>
 void sorttime(Vector<T> vec) {
     std::cout << "Сортировка пузырьком." << std::endl;
-    std::chrono::time_point<std::chrono::system_clock> start, end;
-    start = std::chrono::system_clock::now();
+    Timer t;
 
     vec.sort();
-
-    end = std::chrono::system_clock::now();
-    std::chrono::duration<double> elapsed_seconds = end - start;
-    std::time_t end_time = std::chrono::system_clock::to_time_t(end);
-    std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+    std::cout << "elapsed time: " << t.elapsed() << "s\n";
 }
 
 
 template <typename T>
 void sorttime2(Vector<T> vec) {
     std::cout << "Сортировка Шелла." << std::endl;
-    std::chrono::time_point<std::chrono::system_clock> start, end;
-    start = std::chrono::system_clock::now();
+    Timer t;
 
     vec.shellsort();
-
-    end = std::chrono::system_clock::now();
-    std::chrono::duration<double> elapsed_seconds = end - start;
-    std::time_t end_time = std::chrono::system_clock::to_time_t(end);
-    std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+    std::cout << "elapsed time: " << t.elapsed() << "s\n";
 }
